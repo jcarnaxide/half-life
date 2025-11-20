@@ -61,6 +61,7 @@ var sprinting : bool = false
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+@onready var interaction: RayCast3D = $Head/InteractionRayCast
 
 func _ready() -> void:
 	check_input_mappings()
@@ -119,6 +120,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
+
+
+func _process(delta):
+	# Detect Interactions
+	if interaction.is_colliding():
+		print(interaction.get_collider())
 
 
 ## Rotate us to look around.
