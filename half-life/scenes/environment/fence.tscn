@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://tb14elewiubk"]
+
+[ext_resource type="Script" uid="uid://c5e8mjxvi447m" path="res://scripts/environment/fence.gd" id="1_i2pat"]
+[ext_resource type="PackedScene" uid="uid://clasrgsofixwh" path="res://assets/kaykit/halloween/gltf/fence.gltf" id="2_if31u"]
+[ext_resource type="PackedScene" uid="uid://di38y26ygsurp" path="res://assets/kaykit/halloween/gltf/fence_broken.gltf" id="3_cvfua"]
+[ext_resource type="PackedScene" uid="uid://drwkklwirpknc" path="res://assets/kaykit/halloween/gltf/fence_pillar.gltf" id="4_4a4qk"]
+[ext_resource type="PackedScene" uid="uid://b3o2je6kvcxjj" path="res://assets/kaykit/halloween/gltf/fence_pillar_broken.gltf" id="5_sf4q1"]
+[ext_resource type="PackedScene" uid="uid://dt6tsrcgrul66" path="res://assets/kaykit/halloween/gltf/fence_seperate.gltf" id="6_sgb6h"]
+[ext_resource type="PackedScene" uid="uid://cqbxymuiotksf" path="res://assets/kaykit/halloween/gltf/fence_seperate_broken.gltf" id="7_xrtnu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xrtnu"]
+size = Vector3(4.0640063, 2.2150116, 0.5968056)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vya8s"]
+size = Vector3(4.077903, 2.1968994, 0.5968056)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wf81t"]
+size = Vector3(0.6184951, 2.1968994, 0.5968056)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfnfl"]
+size = Vector3(0.6184951, 1.475174, 0.5968056)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2sfj"]
+size = Vector3(4.115012, 2.1968994, 0.353364)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trmk5"]
+size = Vector3(4.1463842, 2.1968994, 0.37590075)
+
+[node name="Fence" type="Node3D"]
+script = ExtResource("1_i2pat")
+
+[node name="Base" type="Node3D" parent="."]
+
+[node name="fence2" parent="Base" instance=ExtResource("2_if31u")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Base"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Base/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1130753, 0)
+shape = SubResource("BoxShape3D_xrtnu")
+
+[node name="Broken" type="Node3D" parent="."]
+visible = false
+
+[node name="fence_broken2" parent="Broken" instance=ExtResource("3_cvfua")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Broken"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Broken/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00054836273, 1.0858154, -0.007751465)
+shape = SubResource("BoxShape3D_vya8s")
+disabled = true
+
+[node name="Pillar" type="Node3D" parent="."]
+visible = false
+
+[node name="fence_pillar2" parent="Pillar" instance=ExtResource("4_4a4qk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pillar"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pillar/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0833259, 0)
+shape = SubResource("BoxShape3D_wf81t")
+disabled = true
+
+[node name="PillarBroken" type="Node3D" parent="."]
+visible = false
+
+[node name="fence_pillar_broken2" parent="PillarBroken" instance=ExtResource("5_sf4q1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PillarBroken"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PillarBroken/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.734581, 0)
+shape = SubResource("BoxShape3D_hfnfl")
+disabled = true
+
+[node name="Seperate" type="Node3D" parent="."]
+visible = false
+
+[node name="fence_seperate2" parent="Seperate" instance=ExtResource("6_sgb6h")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Seperate"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seperate/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026440203, 1.017334, 0.007483959)
+shape = SubResource("BoxShape3D_h2sfj")
+disabled = true
+
+[node name="SeperateBroken" type="Node3D" parent="."]
+visible = false
+
+[node name="fence_seperate_broken2" parent="SeperateBroken" instance=ExtResource("7_xrtnu")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SeperateBroken"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeperateBroken/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018430352, 1.017334, -0.010620356)
+shape = SubResource("BoxShape3D_trmk5")
+disabled = true
