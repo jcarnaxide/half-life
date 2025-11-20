@@ -1,33 +1,79 @@
-[gd_scene load_steps=5 format=3 uid="uid://cx3avwbpx8eob"]
+[gd_scene load_steps=18 format=3 uid="uid://cx3avwbpx8eob"]
 
+[ext_resource type="Texture2D" uid="uid://bvofjqhrx3pdf" path="res://assets/environment/skies/AllSkyFree_Sky_MoonBurst_Equirect.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://xj6isuftsfqt" path="res://assets/environment/grounds/Ground (6).png" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://com0c6h7qjg74" path="res://assets/kaykit/halloween/gltf/tree_dead_large.gltf" id="4_trceg"]
+[ext_resource type="PackedScene" uid="uid://bcce4emnqjecn" path="res://assets/kaykit/halloween/gltf/tree_dead_large_decorated.gltf" id="5_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://rb21iurclsls" path="res://assets/kaykit/halloween/gltf/tree_dead_medium.gltf" id="6_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://b3iekb3kdu7b4" path="res://assets/kaykit/halloween/gltf/tree_dead_small.gltf" id="7_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://b46xp5rqsprdt" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_large.gltf" id="8_muem4"]
+[ext_resource type="PackedScene" uid="uid://de0fojybk0f4a" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_medium.gltf" id="9_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://i3vc2n121h2o" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_small.gltf" id="10_0ld40"]
+[ext_resource type="PackedScene" uid="uid://c7a5thu0vixkd" path="res://assets/kaykit/halloween/gltf/tree_pine_yellow_large.gltf" id="11_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://cnoy7tltpfuk3" path="res://assets/kaykit/halloween/gltf/tree_pine_yellow_medium.gltf" id="12_yc10j"]
+[ext_resource type="PackedScene" uid="uid://c50jrs1di8uny" path="res://assets/kaykit/halloween/gltf/tree_pine_yellow_small.gltf" id="13_jscy8"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_sugp2"]
+panorama = ExtResource("1_0wfyh")
 
-[sub_resource type="Sky" id="Sky_sugp2"]
-sky_material = SubResource("ProceduralSkyMaterial_0wfyh")
+[sub_resource type="Sky" id="Sky_jyhfs"]
+sky_material = SubResource("PanoramaSkyMaterial_sugp2")
 
-[sub_resource type="Environment" id="Environment_jyhfs"]
+[sub_resource type="Environment" id="Environment_tbgi4"]
 background_mode = 2
-sky = SubResource("Sky_sugp2")
+sky = SubResource("Sky_jyhfs")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jyhfs"]
+albedo_texture = ExtResource("2_sugp2")
+uv1_scale = Vector3(10, 10, 1)
 
 [node name="Main" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(0.99948096, -0.027897444, 0.016106596, 0.0001495434, 0.50401306, 0.8636961, -0.03221283, -0.8632455, 0.50375557, 0, 20.654995, -0.16917801)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jyhfs")
+environment = SubResource("Environment_tbgi4")
 
 [node name="Floor" type="CSGBox3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jyhfs")
 use_collision = true
 size = Vector3(50, 0.25, 50)
 
 [node name="ProtoController" parent="." instance=ExtResource("1_o5qli")]
 can_sprint = true
 look_speed = 0.045
+
+[node name="tree_dead_large2" parent="." instance=ExtResource("4_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36805105, 0.39724833, -3.6985369)
+
+[node name="tree_dead_large_decorated2" parent="." instance=ExtResource("5_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8317268, 0.39724845, -7.2239075)
+
+[node name="tree_dead_medium2" parent="." instance=ExtResource("6_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.248264, 0.42524314, -2.111668)
+
+[node name="tree_dead_small2" parent="." instance=ExtResource("7_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6905444, 0.42153502, 0.29353786)
+
+[node name="tree_pine_orange_large2" parent="." instance=ExtResource("8_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.396753, 0.6797596, -13.987858)
+
+[node name="tree_pine_orange_medium2" parent="." instance=ExtResource("9_dp3eg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.242082, 0.6052073, -8.8256035)
+
+[node name="tree_pine_orange_small2" parent="." instance=ExtResource("10_0ld40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.834549, 0.52006435, 7.829)
+
+[node name="tree_pine_yellow_large2" parent="." instance=ExtResource("11_gqmmt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.709877, 0.6797595, -1.9076185)
+
+[node name="tree_pine_yellow_medium2" parent="." instance=ExtResource("12_yc10j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3553886, 0.60520744, 9.026196)
+
+[node name="tree_pine_yellow_small2" parent="." instance=ExtResource("13_jscy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45091057, 0.52006245, -16.813206)

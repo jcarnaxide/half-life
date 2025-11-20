@@ -56,6 +56,7 @@ var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
+var sprinting : bool = false
 
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
@@ -96,10 +97,9 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jump_velocity
 
 	# Modify speed based on sprinting
-	if can_sprint and Input.is_action_pressed(input_sprint):
-			move_speed = sprint_speed
-	else:
-		move_speed = base_speed
+	if Input.is_action_just_pressed("sprint"):
+		sprinting = not sprinting
+	move_speed = sprint_speed if sprinting else base_speed
 
 	# Apply desired movement to velocity
 	if can_move:
