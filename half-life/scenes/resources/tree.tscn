@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bu0a20jkqqqc7"]
+[gd_scene load_steps=27 format=3 uid="uid://bu0a20jkqqqc7"]
 
 [ext_resource type="Script" uid="uid://c6xptjob5cmt" path="res://scripts/resources/tree.gd" id="1_igmm4"]
 [ext_resource type="PackedScene" uid="uid://i3vc2n121h2o" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_small.gltf" id="2_xs38c"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b46xp5rqsprdt" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_large.gltf" id="8_alrx1"]
 [ext_resource type="PackedScene" uid="uid://c7a5thu0vixkd" path="res://assets/kaykit/halloween/gltf/tree_pine_yellow_large.gltf" id="9_4ksbs"]
 [ext_resource type="PackedScene" uid="uid://com0c6h7qjg74" path="res://assets/kaykit/halloween/gltf/tree_dead_large.gltf" id="10_rqr31"]
+[ext_resource type="Texture2D" uid="uid://b2voouo0qcewp" path="res://assets/particles/wood_7.png" id="12_rh18o"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v1dci"]
 height = 2.1480255
@@ -47,6 +48,33 @@ radius = 2.356
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_6fv8w"]
 height = 2.1480255
 radius = 0.5600586
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y65kc"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("12_rh18o")
+
+[sub_resource type="Curve" id="Curve_rh18o"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5034014, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y65kc"]
+curve = SubResource("Curve_rh18o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_alrx1"]
+particle_flag_rotate_y = true
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 179.99998
+angular_velocity_curve = SubResource("CurveTexture_y65kc")
+radial_velocity_min = 0.99997765
+radial_velocity_max = 0.99997765
+
+[sub_resource type="QuadMesh" id="QuadMesh_4ksbs"]
 
 [node name="Tree" type="Node3D"]
 script = ExtResource("1_igmm4")
@@ -236,6 +264,20 @@ shape = SubResource("CylinderShape3D_6fv8w")
 disabled = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.9857044, 0)
+material_override = SubResource("StandardMaterial3D_y65kc")
+cast_shadow = 0
+emitting = false
+amount = 50
+one_shot = true
+preprocess = 1.0
+speed_scale = 0.5
+explosiveness = 0.5
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_alrx1")
+draw_pass_1 = SubResource("QuadMesh_4ksbs")
 
 [connection signal="interacted" from="Collision/Small/Orange/StaticBody3D" to="." method="_on_interacted"]
 [connection signal="interacted" from="Collision/Small/Yellow/StaticBody3D" to="." method="_on_interacted"]

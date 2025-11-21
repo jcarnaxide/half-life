@@ -521,6 +521,14 @@ transform = Transform3D(0.40197968, 0, 0.9156486, 0, 1, 0, -0.9156486, 0, 0.4019
 [node name="Trees" type="Node3D" parent="."]
 
 [node name="Tree" parent="Trees" instance=ExtResource("15_jkv2x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001074791, 0, -5.6193066)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8694706, 0, -6.209715)
 tree_size = 2
 tree_style = 2
+
+[node name="Tree2" parent="Trees" instance=ExtResource("15_jkv2x")]
+transform = Transform3D(0.8086886, 0, -0.588237, 0, 1, 0, 0.588237, 0, 0.8086886, 3.598371, 0, -5.9517584)
+tree_size = 1
+tree_style = 1
+
+[node name="Tree3" parent="Trees" instance=ExtResource("15_jkv2x")]
+transform = Transform3D(0.6519131, 0, 0.7582937, 0, 1, 0, -0.7582937, 0, 0.6519131, -6.222758, 0, -5.985113)
