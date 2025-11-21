@@ -1,13 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu0a20jkqqqc7"]
+[gd_scene load_steps=21 format=3 uid="uid://bu0a20jkqqqc7"]
 
 [ext_resource type="Script" uid="uid://c6xptjob5cmt" path="res://scripts/resources/tree.gd" id="1_igmm4"]
 [ext_resource type="PackedScene" uid="uid://i3vc2n121h2o" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_small.gltf" id="2_xs38c"]
 [ext_resource type="PackedScene" uid="uid://c50jrs1di8uny" path="res://assets/kaykit/halloween/gltf/tree_pine_yellow_small.gltf" id="3_pix6c"]
 [ext_resource type="PackedScene" uid="uid://b3iekb3kdu7b4" path="res://assets/kaykit/halloween/gltf/tree_dead_small.gltf" id="4_nyu3d"]
+[ext_resource type="PackedScene" uid="uid://de0fojybk0f4a" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_medium.gltf" id="5_hen4o"]
+[ext_resource type="Script" uid="uid://cj5wwu0lavhpu" path="res://scripts/interact/interactable.gd" id="5_nyu3d"]
+[ext_resource type="PackedScene" uid="uid://cnoy7tltpfuk3" path="res://assets/kaykit/halloween/gltf/tree_pine_yellow_medium.gltf" id="6_rh18o"]
+[ext_resource type="PackedScene" uid="uid://rb21iurclsls" path="res://assets/kaykit/halloween/gltf/tree_dead_medium.gltf" id="7_y65kc"]
+[ext_resource type="PackedScene" uid="uid://b46xp5rqsprdt" path="res://assets/kaykit/halloween/gltf/tree_pine_orange_large.gltf" id="8_alrx1"]
+[ext_resource type="PackedScene" uid="uid://c7a5thu0vixkd" path="res://assets/kaykit/halloween/gltf/tree_pine_yellow_large.gltf" id="9_4ksbs"]
+[ext_resource type="PackedScene" uid="uid://com0c6h7qjg74" path="res://assets/kaykit/halloween/gltf/tree_dead_large.gltf" id="10_rqr31"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_v1dci"]
 height = 2.1480255
-radius = 1.2006836
+radius = 1.1513672
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hen4o"]
+height = 2.1480255
+radius = 1.151
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rh18o"]
+height = 2.1480255
+radius = 0.5722656
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y65kc"]
+height = 2.1480255
+radius = 1.6357422
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_alrx1"]
+height = 2.1480255
+radius = 1.636
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ksbs"]
+height = 2.1480255
+radius = 0.6591797
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rqr31"]
+height = 2.1480255
+radius = 2.355957
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vbib7"]
+height = 2.1480255
+radius = 2.356
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6fv8w"]
+height = 2.1480255
+radius = 0.5600586
 
 [node name="Tree" type="Node3D"]
 script = ExtResource("1_igmm4")
@@ -33,11 +72,177 @@ visible = false
 [node name="tree_dead_small2" parent="Model/Small/Dead" instance=ExtResource("4_nyu3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29999983, 0)
 
+[node name="Medium" type="Node3D" parent="Model"]
+
+[node name="Orange" type="Node3D" parent="Model/Medium"]
+visible = false
+
+[node name="tree_pine_orange_medium2" parent="Model/Medium/Orange" instance=ExtResource("5_hen4o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39676797, 0)
+
+[node name="Yellow" type="Node3D" parent="Model/Medium"]
+visible = false
+
+[node name="tree_pine_yellow_medium2" parent="Model/Medium/Yellow" instance=ExtResource("6_rh18o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39676797, 0)
+
+[node name="Dead" type="Node3D" parent="Model/Medium"]
+visible = false
+
+[node name="tree_dead_medium2" parent="Model/Medium/Dead" instance=ExtResource("7_y65kc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29999983, 0)
+
+[node name="Large" type="Node3D" parent="Model"]
+
+[node name="Orange" type="Node3D" parent="Model/Large"]
+visible = false
+
+[node name="tree_pine_orange_large2" parent="Model/Large/Orange" instance=ExtResource("8_alrx1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39676797, 0)
+
+[node name="Yellow" type="Node3D" parent="Model/Large"]
+visible = false
+
+[node name="tree_pine_yellow_large2" parent="Model/Large/Yellow" instance=ExtResource("9_4ksbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39676797, 0)
+
+[node name="Dead" type="Node3D" parent="Model/Large"]
+visible = false
+
+[node name="tree_dead_large2" parent="Model/Large/Dead" instance=ExtResource("10_rqr31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29999983, 0)
+
 [node name="Collision" type="Node3D" parent="."]
 
-[node name="Small" type="StaticBody3D" parent="Collision"]
-collision_layer = 3
+[node name="Small" type="Node3D" parent="Collision"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Small"]
+[node name="Orange" type="Node3D" parent="Collision/Small"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Small/Orange"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Small/Orange/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
 shape = SubResource("CylinderShape3D_v1dci")
+
+[node name="Yellow" type="Node3D" parent="Collision/Small"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Small/Yellow"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Small/Yellow/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_hen4o")
+disabled = true
+
+[node name="Dead" type="Node3D" parent="Collision/Small"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Small/Dead"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Small/Dead/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_rh18o")
+disabled = true
+
+[node name="Medium" type="Node3D" parent="Collision"]
+
+[node name="Orange" type="Node3D" parent="Collision/Medium"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Medium/Orange"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Medium/Orange/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_y65kc")
+disabled = true
+
+[node name="Yellow" type="Node3D" parent="Collision/Medium"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Medium/Yellow"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Medium/Yellow/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_alrx1")
+disabled = true
+
+[node name="Dead" type="Node3D" parent="Collision/Medium"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Medium/Dead"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Medium/Dead/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_4ksbs")
+disabled = true
+
+[node name="Large" type="Node3D" parent="Collision"]
+
+[node name="Orange" type="Node3D" parent="Collision/Large"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Large/Orange"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Large/Orange/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_rqr31")
+disabled = true
+
+[node name="Yellow" type="Node3D" parent="Collision/Large"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Large/Yellow"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Large/Yellow/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_vbib7")
+disabled = true
+
+[node name="Dead" type="Node3D" parent="Collision/Large"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Collision/Large/Dead"]
+collision_layer = 3
+script = ExtResource("5_nyu3d")
+prompt_message = "Cut Down"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision/Large/Dead/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018495545, 1.0697136, 0)
+visible = false
+shape = SubResource("CylinderShape3D_6fv8w")
+disabled = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="interacted" from="Collision/Small/Orange/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Small/Yellow/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Small/Dead/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Medium/Orange/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Medium/Yellow/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Medium/Dead/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Large/Orange/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Large/Yellow/StaticBody3D" to="." method="_on_interacted"]
+[connection signal="interacted" from="Collision/Large/Dead/StaticBody3D" to="." method="_on_interacted"]

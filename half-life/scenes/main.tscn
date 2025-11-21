@@ -522,3 +522,5 @@ transform = Transform3D(0.40197968, 0, 0.9156486, 0, 1, 0, -0.9156486, 0, 0.4019
 
 [node name="Tree" parent="Trees" instance=ExtResource("15_jkv2x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001074791, 0, -5.6193066)
+tree_size = 2
+tree_style = 2
