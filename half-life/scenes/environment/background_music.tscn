@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d03gojnapet4l"]
+
+[ext_resource type="Script" uid="uid://dlv3yt7gp84k1" path="res://scripts/environment/background_music.gd" id="1_486ls"]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+script = ExtResource("1_486ls")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
